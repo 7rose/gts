@@ -34,12 +34,20 @@ Route::group(['middleware' => ['gts']], function () {
     Route::post('/products_store', 'ProductController@store');
     Route::get('/img/{id}', 'ProductController@img');
     Route::get('/delete/{id}', 'ProductController@delete');
-});
     Route::post('/img_store', 'ProductController@imgStore');
+    Route::get('/sort/{id}/{order}', 'ProductController@sort');
+});
 
 Route::get('/test', function() {
-    return view('img');
+    // return view('img');
     // abort('403');
+    $a = App\Product::whereBetween('order', [1+1, 3-1])->get();
+    foreach ($a as $b) {
+        # code...
+        echo $b->id;
+    }
+    // print_r($a);
+
 });
 
 

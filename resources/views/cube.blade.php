@@ -25,7 +25,10 @@
                     <p class="product">型号: {{ $r->show($record->info, 'model') }}</p>
                     <p class="product">简介: {{ $r->show($record->info, 'description') }}</p>
                     @if(Auth::check())
-                    <p><a class="btn btn-sm btn-danger" href="/delete/{{ $record->id }}">删除!</a></p>
+                    <p>
+                        <a class="btn btn-sm btn-danger" href="/delete/{{ $record->id }}">删除!</a>
+                        <a class="btn btn-sm btn-info" href="javascript:sort({{ $record->id }})">排序</a>
+                    </p>
                     @endif
                 </div>
         @endforeach
@@ -35,4 +38,66 @@
 @endif
     </div>
 </section>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    排序
+                </h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="target_id">
+                <input type="number" id="order" placeholder="请输入位置">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary" onclick="javascript:do_sort()">
+                    排序
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<script>
+    function sort(id) {
+        $("#target_id").val(id);
+        $("#myModal").modal();
+    }
+
+    function do_sort() {
+        var id = $("#target_id").val();
+        var order = $("#order").val();
+
+        var url = '/sort/'+ id + '/' + order;
+
+        window.location.href = url;
+    }
+</script>
+
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
