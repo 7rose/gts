@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use Auth;
 use Log;
 use File;
+use Image;
 
 use App\Product;
 use App\Forms\ProductForm;
@@ -119,13 +120,14 @@ class ProductController extends Controller
     public function imgStore(Request $request)
     {
         $img = $request->file('avatar');
-        $extension = $img->getClientOriginalExtension();
         $id = $request->id;
+        // $extension = $img->getClientOriginalExtension();
+        // Storage::disk('img')->put($id.'.'.$extension,  File::get($img));
         $exists = Product::find($id);
-
         if(!$exists) abort('404');
 
-        Storage::disk('img')->put($id.'.'.$extension,  File::get($img));
+        Image::make($img)->insert('img/watermark.png')->save('storage/app/img/'.$id.'.jpg', 100);
+
         $exists->update(['info->img' => true]);
 
         echo '200';
