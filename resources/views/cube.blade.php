@@ -9,14 +9,12 @@
 
 <img src="{{ URL::asset('img/cube.jpg') }}" class="img-responsive">
 
-<div class="row brand">
-    <div class="container">
-        <h4>机柜系列</h4>
-    </div>
+<div class="container brand">
+    <h4>- 机柜系列</h4>
 </div>
 
-
-<div class="container">
+<section id="content"> 
+    <div class="container">
 @if(isset($records))
     @if(count($records))
 
@@ -36,5 +34,5 @@
     @endif
 @endif
     </div>
-
+</section>
 @endsection

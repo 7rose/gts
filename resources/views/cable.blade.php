@@ -8,13 +8,13 @@
 @section('content')
 
 <img src="{{ URL::asset('img/cable.jpg') }}" class="img-responsive">
-<div class="row brand">
-    <div class="container">
-        <h4>综合布线</h4>
-    </div>
+
+<div class="container brand">
+    <h4>- 综合布线</h4>
 </div>
 
-<div class="container">
+<section id="content"> 
+    <div class="container">
 @if(isset($records))
     @if(count($records))
 
@@ -34,5 +34,5 @@
     @endif
 @endif
     </div>
-
+</section>
 @endsection
