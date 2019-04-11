@@ -25,7 +25,7 @@ class ProductForm extends Form
         ])
         ->add('description', 'text', [
             'label' => '描述',
-            'rules' => 'required|min:4|max:20'
+            'rules' => 'required|min:4|max:22'
         ])
         ->add('content', 'textarea', [
             'label' => '说明',
