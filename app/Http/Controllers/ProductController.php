@@ -96,7 +96,7 @@ class ProductController extends Controller
             'content' => $request->content,
         ];
 
-        $order = Product::max('order');
+        $order = Product::where('type', $request->type)->max('order');
 
         if(!$order) {
             $order = 1;
@@ -146,7 +146,7 @@ class ProductController extends Controller
         $target = Product::findOrFail($id);
 
         $old_order = $target->order;
-        $max_order = Product::max('order');
+        $max_order = Product::where('type', $target->type)->max('order');
 
         // 非法
         if($order > $max_order || $order < 1) abort('404');
@@ -156,10 +156,10 @@ class ProductController extends Controller
 
         if($order > $old_order) {
             // 向后
-            Product::whereBetween('order', [$old_order+1, $order])->decrement('order');
+            Product::where('type', $target->type)->whereBetween('order', [$old_order+1, $order])->decrement('order');
         }else{
             // 向前
-            Product::whereBetween('order', [$order, $old_order-1])->increment('order');
+            Product::where('type', $target->type)->whereBetween('order', [$order, $old_order-1])->increment('order');
         }
 
         $target->update(['order'=>$order]);

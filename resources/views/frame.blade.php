@@ -40,7 +40,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img class="logo_svg" src="img/logo.svg" alt="logo"/></a>
+                    <a class="navbar-brand" href="/"><img class="logo_svg" src="img/logo.svg" alt="logo"/></a>
                 </div>
                 <div class="navbar-collapse collapse ">
                     <ul class="nav navbar-nav">   
