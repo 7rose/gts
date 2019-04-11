@@ -79,10 +79,10 @@ class ProductController extends Controller
     {
         $form = $this->form(ProductForm::class);
 
-        $exists = Product::where('name', $request->name)
+        $exists = Product::where('info->model', $request->model)
                         ->first();
 
-        if($exists) return redirect()->back()->withErrors(['name'=>'此产品名称已存在!'])->withInput();
+        if($exists) return redirect()->back()->withErrors(['model'=>'此产品型号已存在!'])->withInput();
 
         $info = [
             'name' => $request->name,
