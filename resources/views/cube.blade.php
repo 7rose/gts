@@ -7,10 +7,10 @@
 
 @section('content')
 
-<img src="{{ URL::asset('img/cube.jpg') }}" class="img-responsive">
+<img src="{{ URL::asset('img/'.$array['type'].'.jpg') }}" class="img-responsive">
 
 <div class="container brand">
-    <h4>- 机柜系列</h4>
+    <h4>- {{ $array['text'] }}</h4>
 </div>
 
 <section id="content"> 

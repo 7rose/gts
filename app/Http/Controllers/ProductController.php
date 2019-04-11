@@ -32,13 +32,7 @@ class ProductController extends Controller
      */
     public function cube()
     {
-        $records = Product::where('type','cube')
-                            ->whereNotNull('info->img')
-                            ->orderBy('order')
-                            ->latest()
-                            ->get();
-
-        return view('cube', compact('records'));
+        return $this->pick(['type'=>'cube', 'text'=>'机柜']);
     }
 
     /**
@@ -47,13 +41,23 @@ class ProductController extends Controller
      */
     public function cable()
     {
-        $records = Product::where('type','cable')
+        return $this->pick(['type'=>'cable', 'text'=>'综合布线']);
+    }
+
+    /**
+     * 选择
+     *
+     */
+    private function pick($array)
+    {
+        $records = Product::where('type', $array['type'])
                             ->whereNotNull('info->img')
                             ->orderBy('order')
                             ->latest()
                             ->get();
 
-        return view('cable', compact('records'));
+
+        return view('cube', compact('records', 'array'));
     }
 
     /**
