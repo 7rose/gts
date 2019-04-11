@@ -17,15 +17,15 @@ class ProductForm extends Form
         ])
         ->add('name', 'text', [
             'label' => '名称',
-            'rules' => 'required|min:2|max:20'
+            'rules' => 'required|min:2|max:18'
         ])
         ->add('model', 'text', [
             'label' => '型号',
-            'rules' => 'required|min:2|max:20'
+            'rules' => 'required|min:2|max:18'
         ])
         ->add('description', 'text', [
             'label' => '描述',
-            'rules' => 'required|min:4|max:16'
+            'rules' => 'required|min:4|max:20'
         ])
         ->add('content', 'textarea', [
             'label' => '说明',
