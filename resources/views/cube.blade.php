@@ -22,7 +22,7 @@
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <img class="img-responsive" src="{{URL::asset('storage/app/img/'.$record->id.'.jpg')}}" alt="{{ $r->show($record->info, 'content') }}">
                     <h5>{{ $record->name }}</h5>
-                    <p class="product">No. {{ $r->show($record->info, 'model') }}</p>
+                    <p class="product">编号: {{ $r->show($record->info, 'model') }}</p>
                     <p class="product">{{ $r->show($record->info, 'description') }}</p>
                     @if(Auth::check())
                     <p>
