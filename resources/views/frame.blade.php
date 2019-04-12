@@ -84,8 +84,7 @@
             <div class="row cent">
 
                     <div class="copyright">
-                        <p>版权所有 &copy; {{ today()->year }} 南京希贝元智能科技有限公司</p>
-                        <p><a href="http://www.miitbeian.gov.cn">苏ICP备17072289号-1</a></p>
+                        <p class="cent-text">版权所有 &copy; {{ today()->year }} 南京希贝元智能科技有限公司<br><a href="http://www.miitbeian.gov.cn">苏ICP备17072289号-1</a></p>
                     </div>
 
             </div>
