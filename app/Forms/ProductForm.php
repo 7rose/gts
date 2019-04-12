@@ -20,7 +20,7 @@ class ProductForm extends Form
             'rules' => 'required|min:2|max:18'
         ])
         ->add('model', 'text', [
-            'label' => '型号',
+            'label' => '编号',
             'rules' => 'required|min:2|max:18'
         ])
         ->add('description', 'text', [
